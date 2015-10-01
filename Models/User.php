@@ -2,7 +2,7 @@
 namespace MVC\Models;
 
 use MVC\Core\Database;
-
+use MVC\ViewModels;
 class User
 {
     const MONEY = 0;
@@ -98,11 +98,23 @@ class User
 
         $result = $db->prepare("UPDATE users SET password = ?, username = ? WHERE id = ?");
         $result->execute([
-            $pass,
+            password_hash($pass, PASSWORD_DEFAULT),
             $user,
             $id
         ]);
 
+        return $result->rowCount() > 0;
+    }
+
+    public function editSum($money,$oldMoney, $id)
+    {
+        $db = Database::getInstance('app');
+        $newMoney = $money+$oldMoney;
+        $result = $db->prepare("UPDATE users SET money = ? WHERE id = ?");
+        $result->execute([
+            (double)$newMoney,
+            $id
+        ]);
         return $result->rowCount() > 0;
     }
 }

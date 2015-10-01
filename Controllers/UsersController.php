@@ -31,10 +31,8 @@ class UsersController extends Controller
 
     private function initLogin($user, $pass)
     {
-
         $userModel = new User();
         $userId = $userModel->login($user, $pass);
-        var_dump($userId);
         $_SESSION['id'] = $userId;
 
         header("Location: profile");
@@ -82,6 +80,22 @@ class UsersController extends Controller
 
         $this->escapeAll($userViewModel);
 
+        return new View($userViewModel);
+    }
+
+    public function edit(){
+        $userModel = new User();
+        $userInfo = $userModel->getInfo($_SESSION['id']);
+
+
+        $userViewModel = new \MVC\ViewModels\User(
+            $userInfo['username'],
+            $userInfo['password'],
+            $userInfo['id'],
+            $userInfo['money']
+
+        );
+
         if (isset($_POST['edit'])) {
             if ($_POST['password'] != $_POST['confirm'] || empty($_POST['password'])) {
                 $userViewModel->error = 1;
@@ -103,7 +117,43 @@ class UsersController extends Controller
             $userViewModel->error = 1;
             return new View($userViewModel);
         }
-
         return new View($userViewModel);
     }
+
+    public function addMoney(){
+        $userModel = new User();
+        $userInfo = $userModel->getInfo($_SESSION['id']);
+
+
+        $userViewModel = new \MVC\ViewModels\User(
+            $userInfo['username'],
+            $userInfo['password'],
+            $userInfo['id'],
+            $userInfo['money']
+
+        );
+
+        if (isset($_POST['add'])) {
+            if ($_POST['sum'] != $_POST['confirm-sum'] || empty($_POST['sum'])) {
+                $userViewModel->error = 1;
+                return new View($userViewModel);
+            }
+            if ($userModel->editSum(
+                (double)$_POST['sum'],
+                (double)$userInfo['money'],
+                $_SESSION['id']
+            )) {
+                $userViewModel->success = 1;
+                $userViewModel->setMoney($_POST['sum']);
+
+                return new View($userViewModel);
+            }
+
+            $userViewModel->error = 1;
+            return new View($userViewModel);
+        }
+        return new View($userViewModel);
+    }
+
+
 }
