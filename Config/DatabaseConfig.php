@@ -1,5 +1,5 @@
 <?php
-namespace SoftUni\Config;
+namespace MVC\Config;
 
 class DatabaseConfig
 {

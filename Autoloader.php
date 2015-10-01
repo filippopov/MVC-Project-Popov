@@ -1,5 +1,5 @@
 <?php
-namespace SoftUni;
+namespace MVC;
 
 class Autoloader
 {

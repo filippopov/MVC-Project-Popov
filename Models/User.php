@@ -1,7 +1,7 @@
 <?php
-namespace SoftUni\Models;
+namespace MVC\Models;
 
-use SoftUni\Core\Database;
+use MVC\Core\Database;
 
 class User
 {

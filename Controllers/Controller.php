@@ -1,8 +1,17 @@
 <?php
-namespace SoftUni\Controllers;
+namespace MVC\Controllers;
 
 abstract class Controller
 {
+    public function __construct()
+    {
+        $this->onInit();
+    }
+
+    protected function onInit(){
+
+    }
+
     public function isLogged()
     {
         return isset($_SESSION['id']);

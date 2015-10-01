@@ -1,6 +1,6 @@
 <?php
 
-namespace SoftUni\Core\Drivers;
+namespace MVC\Core\Drivers;
 
 abstract class DriverAbstract
 {

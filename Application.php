@@ -1,5 +1,5 @@
 <?php
-namespace SoftUni;
+namespace MVC;
 
 class Application
 {
@@ -9,7 +9,7 @@ class Application
 
     private $controller;
 
-    const CONTROLLERS_NAMESPACE = 'SoftUni\\Controllers\\';
+    const CONTROLLERS_NAMESPACE = 'MVC\\Controllers\\';
     const CONTROLLERS_SUFFIX = 'Controller';
 
     public function __construct($controllerName, $actionName, $requestParams = [])

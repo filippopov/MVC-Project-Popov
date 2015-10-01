@@ -1,10 +1,10 @@
 <?php
-namespace SoftUni\Controllers;
+namespace MVC\Controllers;
 
-use SoftUni\Models\User;
-use SoftUni\View;
-use SoftUni\ViewModels\LoginInformation;
-use SoftUni\ViewModels\RegisterInformation;
+use MVC\Models\User;
+use MVC\View;
+use MVC\ViewModels\LoginInformation;
+use MVC\ViewModels\RegisterInformation;
 
 class UsersController extends Controller
 {
@@ -72,13 +72,15 @@ class UsersController extends Controller
         $userInfo = $userModel->getInfo($_SESSION['id']);
 
 
-        $userViewModel = new \SoftUni\ViewModels\User(
+        $userViewModel = new \MVC\ViewModels\User(
             $userInfo['username'],
             $userInfo['password'],
             $userInfo['id'],
             $userInfo['money']
 
         );
+
+        $this->escapeAll($userViewModel);
 
         if (isset($_POST['edit'])) {
             if ($_POST['password'] != $_POST['confirm'] || empty($_POST['password'])) {
@@ -104,13 +106,4 @@ class UsersController extends Controller
 
         return new View($userViewModel);
     }
-
-//    private function initLogin($user, $pass)
-//    {
-//        $userModel = new User();
-//
-//        $userId = $userModel->login($user, $pass);
-//        $_SESSION['id'] = $userId;
-//        header("Location: profile");
-//    }
 }

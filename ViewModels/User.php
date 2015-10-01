@@ -1,6 +1,6 @@
 <?php
 
-namespace SoftUni\ViewModels;
+namespace MVC\ViewModels;
 
 class User
 {

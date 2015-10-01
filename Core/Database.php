@@ -1,8 +1,8 @@
 <?php
 
-namespace SoftUni\Core;
+namespace MVC\Core;
 
-use SoftUni\Core\Drivers\DriverFactory;
+use MVC\Core\Drivers\DriverFactory;
 
 class Database
 {
