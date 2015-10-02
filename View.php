@@ -15,7 +15,6 @@ class View
     public function __construct()
     {
         $params = func_get_args();
-
         if (count($params) == self::PARAMS_COUNT_MODEL_AND_VIEW) {
             $view = $params[0];
             $model = $params[1];
@@ -23,7 +22,6 @@ class View
             $this->initModelView($view, $model);
         } else {
             $model = isset($params[0]) ? $params[0] : null;
-
             $this->initModelOnly($model);
         }
     }

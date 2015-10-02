@@ -13,7 +13,13 @@ $requestString = str_replace($directories, '', $uri);
 $requestParams = explode("/", $requestString);
 
 $controller = array_shift($requestParams);
+$isAreas = false;
+if($controller=='areas'){
+    $isAreas= true;
+    $controller = array_shift($requestParams);
+}
 $action = array_shift($requestParams);
+
 
 \MVC\Core\Database::setInstance(
 \MVC\Config\DatabaseConfig::DB_INSTANCE,
@@ -24,7 +30,7 @@ $action = array_shift($requestParams);
 \MVC\Config\DatabaseConfig::DB_HOST
 );
 
-$app = new \MVC\Application($controller, $action, $requestParams);
+$app = new \MVC\Application($controller, $action, $requestParams, $isAreas);
 $app->start();
 
 

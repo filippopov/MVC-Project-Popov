@@ -5,4 +5,25 @@
 
 <a href="edit">Edit Profile</a>
 <a href="addMoney">Add Money</a>
+<a href="http://localhost:8080/MVC-Project-Popov/areas/product/allProducts">Show All Products</a>
+<?php
+//$names =[
+//    [
+//        'id'=>1,
+//        'name'=>"peter",
+//        'email'=>'gdff'
+//    ],
+//    [
+//        'id'=>2,
+//        'name'=>"sdfsdfsdf",
+//        'email'=>'dsfdsfdsfs'
+//    ],
+//];
 
+// \MVC\ViewHelpers\DropDown::create()->create()
+//    ->addAttribute('name', 'imena')
+//     ->addAttribute('id', 'names')
+//    ->addAttribute('class', 'red-menu')
+//    ->setDefaultOption('--Buildings--')
+//    ->setContent($names,'id','name','email','dsfdsfdsfs')
+//    ->render();
