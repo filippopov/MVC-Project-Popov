@@ -4,6 +4,7 @@
     <div>
         <input type="text" id="name" name="name" placeholder="Name"/>
         <input type="text" id="type" name="type" placeholder="Type" />
+        <input type="text" id="quantity" name="quantity" placeholder="Quantity" />
         <input type="text" id="price" name="price" placeholder="Price" />
         <input type="submit" name="submit"/>
     </div>

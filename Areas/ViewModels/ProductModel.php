@@ -13,14 +13,16 @@ class ProductModel {
     private $id;
     private $name;
     private $type;
+    private $quantity;
     private $price;
 
-    function __construct($id, $name, $price, $type)
+    function __construct($id, $name, $price,$quantity, $type)
     {
         $this->id = $id;
         $this->name = $name;
         $this->price = $price;
         $this->type = $type;
+        $this->quantity=$quantity;
     }
 
     /**
@@ -29,6 +31,23 @@ class ProductModel {
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getQuantity()
+    {
+        return $this->quantity;
+    }
+
+    /**
+     * @param mixed $quantity
+     */
+    public function setQuantity($quantity)
+    {
+        $this->quantity = $quantity;
+        return $this;
     }
 
     /**

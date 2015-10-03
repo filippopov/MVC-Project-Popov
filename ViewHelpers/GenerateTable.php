@@ -47,8 +47,8 @@ class GenerateTable {
             $this->options .= "<td>{$v->getId()}</td>";
             $this->options .= "<td>{$v->getName()}</td>";
             $this->options .= "<td>{$v->getType()}</td>";
+            $this->options .= "<td>{$v->getQuantity()}</td>";
             $this->options .= "<td>{$price}</td>";
-            $this->options .= "<td><a href=\"addToCart\">Add To Cart</a></td>";
             $this->options.="</tr>";
         }
 
@@ -66,4 +66,4 @@ class GenerateTable {
 
         echo $output;
     }
-} 
+}

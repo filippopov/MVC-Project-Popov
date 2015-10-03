@@ -18,7 +18,10 @@ if($controller=='areas'){
     $isAreas= true;
     $controller = array_shift($requestParams);
 }
+
 $action = array_shift($requestParams);
+
+
 
 
 \MVC\Core\Database::setInstance(
