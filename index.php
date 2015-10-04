@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once 'Autoloader.php';
+require_once 'config.php';
 
 \MVC\Autoloader::init();
 
@@ -19,7 +20,27 @@ if($controller=='areas'){
     $controller = array_shift($requestParams);
 }
 
+$isController =false;
+
+foreach($config as $conf){
+
+    if($conf == $controller){
+        $isController=true;
+
+    }
+}
+
+if($isController==false){
+    $controller='base';
+}
+
 $action = array_shift($requestParams);
+if($controller=='base'){
+    $action='notFound';
+}
+
+
+
 
 
 
